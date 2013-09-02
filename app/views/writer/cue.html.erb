@@ -1,0 +1,10 @@
+TITLE "<%= @title %>"
+PERFORMER "<%= @album %>"
+FILE "<%= @filename %>" MP3
+<% for @i in 1..@repeats %>
+  TRACK <%= @i.to_s.rjust(2,'0') %> AUDIO
+    TITLE "Track <%= @i.to_s.rjust(2,'0') %>"
+    PERFORMER "Set"
+    INDEX 01 <%= @position.to_s.rjust(2,'0') %>:00:00
+    <% @position += @track_length %>
+<% end %>
